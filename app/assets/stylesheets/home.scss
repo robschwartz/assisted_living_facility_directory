@@ -1,7 +1,19 @@
-.search-submit {
-  margin-top: 8px;
+.navbar-container{
+  height: 400px;
+  background-image: asset_url('banner_2.png');
+  width: 100%;
+  background-size: 100% 162%;
+  background-repeat: no-repeat;
 }
 
+.links {
+  float: right;
+  margin: 18px;
+  a {
+    color: white;
+    font-size: 24px;
+  }
+}
 
 .state-section {
   h2{
