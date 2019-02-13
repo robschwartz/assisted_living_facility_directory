@@ -17,8 +17,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
     %script{:async => true, :src=>"https://www.googletagmanager.com/gtag/js?id=UA-111635553-1"}
-
+    
     %body#myPage{"data-offset" => "60", "data-spy" => "scroll", "data-target" => ".navbar"}
+
+      = render :partial => "shared/banner"
       = yield
       = render :partial => "shared/footer"
       = render :partial => "shared/modal"

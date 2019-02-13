@@ -16,16 +16,16 @@
               %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
               %input.form-control{name: 'email', placeholder: 'Email', required: true}
               %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
-              .form-check
-                %label.form-check-label
-                  Nursing Home
-                  %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
-              .form-check
-                %label.form-check-label
-                  Assisted Living
-                  %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
-              .form-check
-                %label.form-check-label
-                  Both
-                  %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
+              -# .form-check
+              -#   %label.form-check-label
+              -#     Nursing Home
+              -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
+              -# .form-check
+              -#   %label.form-check-label
+              -#     Assisted Living
+              -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
+              -# .form-check
+              -#   %label.form-check-label
+              -#     Both
+              -#     %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
               %button.form-control.btn.btn-default.search-submit{type: :submit} Submit

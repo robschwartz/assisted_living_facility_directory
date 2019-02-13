@@ -14,6 +14,8 @@
 //= require jquery.min
 //= require jquery.easing.min
 //= require bootstrap.min
+//= require jvectormap
+//= require jvectormap/maps/us_merc
 //= require cable
 //= require contactform
 //= require custom

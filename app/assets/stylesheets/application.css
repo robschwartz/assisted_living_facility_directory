@@ -17,6 +17,7 @@
  *= require font-awesome
  *= font-awesome.min
  *= home
+ *= require jvectormap
  *= require_tree .
  *= require_self
  */

@@ -1,15 +1,3 @@
-/ banner
-%section
-  .navbar-container
-    .header-container
-      .logo
-      .links
-        %a{:href => "/about"}
-          About
-        |
-        %a{:href => "/"}
-          Home
-/ / banner
 / cta
 %section#cta-1.section-padding
   .container
@@ -29,16 +17,16 @@
                 %input.form-control{name: 'email', placeholder: 'Email', required: true}
                 %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
                 %input.form-control{name: 'web_referral', type:'hidden', value: "Adult Home Directory"}
-                .form-check.form-check-inline
-                  %label.form-check-label
-                    Nursing Home
-                    %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
-                  %label.form-check-label
-                    Assisted Living
-                    %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
-                  %label.form-check-label
-                    Both
-                    %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
+                -# .form-check.form-check-inline
+                -#   %label.form-check-label
+                -#     Nursing Home
+                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Nursing Home", required: true}
+                -#   %label.form-check-label
+                -#     Assisted Living
+                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"Assisted Living Facility", required: true}
+                -#   %label.form-check-label
+                -#     Both
+                -#     %input.form-check-input{type:'radio',name: 'home_type', value:"", required: true, checked:true}
                 %button.form-control.btn.btn-default.search-submit{type: :submit} Submit
 
 / / about
@@ -46,8 +34,10 @@
 %section.section-padding.state-section
   .container
     .row
-      %h2 Choose a State to Get Started
-
+      .col-md-12
+        %h2 Choose a State to Get Started
+        #vmap{:style=>"width: 800px; height: 600px; margin-left:20%; margin-top:15px"}
+  
     .row
       %ul.state-list.list-inline
         -@states.each do |key, val|
@@ -93,13 +83,26 @@
               %button.btn.btn-form{:type => "submit"} Send Message
 
 :javascript
-  $("#search").on('click', function(){
-    var searchInput = $('#search-input').val();
+
+  $(document).ready(function() {
+    $('#vmap').vectorMap({ map: 'us_merc' });
+  });
+
+  $(function() {
+   $('#vmap').click(function (){
+     changeUrl(event.target.dataset.code)});
+  });
+
+  function changeUrl(state){
     $.ajax({
       method: "POST",
-      url: "/provider/search/"+searchInput
+      url: "/provider/search?search="+state,
+      success: function (state) {
+                window.location = "/adult-home-finder/adult-homes/" + state["state"] ;
+            }
     })
-  })
+  }
+
 
 %script{:type=>"application/ld+json"}
   :plain

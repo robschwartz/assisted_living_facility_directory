@@ -12,8 +12,11 @@ class ProviderController < ActionController::Base
   end
 
   def search
-    p params
-    redirect_to location_path(location: params['search'], home_type: params['home_type'])
+    @state = params['search']
+    abbr = @state.split("-")[1]
+    state_name = CS.states(:us)[abbr.to_sym]
+    render json: {state: state_name}
+    # redirect_to location_url(location: @state, home_type: params['home_type']) and return
   end
 
   def req_info
@@ -61,14 +64,20 @@ class ProviderController < ActionController::Base
 
   private
 
+  def convert_state
+    abbr = @state.split("-")[1]
+    CS.states(:us)[abbr.to_sym]
+  end
+
+
   def set_title_tag
-    @title = if !@location.blank?
-              "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near #{@location}"
-            elsif !@state.blank?
-               "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near #{@state}"
-             else
-               "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near you"
-             end
+    @title =  if !@location.blank?
+                "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near #{@location}"
+              elsif !@state.blank?
+                "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near #{@state}"
+              else
+                "Find Nursing Homes, Assisted Living Facilities, Intermediate Care Near you"
+              end
   end
 
 
