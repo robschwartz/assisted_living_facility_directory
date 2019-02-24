@@ -10,8 +10,8 @@
         .modal-body
           = form_tag(controller: :provider , action: :req_info) do
             .form-group.col-xs-12
-              %input.form-control{name: 'home_id', type:'hidden'}
-              %input.form-control{name: 'web_referral', type:'hidden', value: "Adult Home Directory"}
+              %input.form-control{name: 'provider_id', type:'hidden'}
+              %input.form-control{name: 'web_referral', type:'hidden', value: "allseniorcarefinder"}
               %input.form-control{name: 'name', placeholder: 'Full Name', required: true}
               %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
               %input.form-control{name: 'email', placeholder: 'Email', required: true}

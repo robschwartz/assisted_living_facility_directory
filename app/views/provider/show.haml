@@ -31,6 +31,7 @@
             %input.form-control{name: 'email', placeholder: 'Email', required: true}
             %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
             %input.form-control{name: 'web_referral', type:'hidden', value: "Adult Home Directory"}
+            %input.form-control{name: 'provider_id', type:'hidden', value: "#{@home.id}"}
             -# .form-check
             -#   %label.form-check-label
             -#     Nursing Home
@@ -76,13 +77,13 @@
                 .fa.fa-minus-square.red
               %br
 
-            .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{@home.name}", "data-provNumber"=> "#{@home.provider_number}"}
+            .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{@home.name}", "data-provNumber"=> "#{@home.id}"}
               Request Info
           .about-container.col-md-8.col-xs-12
             %h2.about-header About #{@home.name}
             -if @home.home_type = "Nursing Home"
               %p.about-text
-                #{@home.name}, located in #{@home.city}, provides residents assistance with care that can't be offered for at home. They have nursing aides and skilled nurses on hand 24 hours a day. The staff provides medical care, as well as physical, speech and occupational therapy. #{@home.name} offers:
+                #{@home.name}, located in #{@home.city}, provides residents assistance with care that can't be offered for at home. They have nursing aides and skilled help on hand 24 hours a day. The staff provides medical care, as well as physical, speech and occupational therapy. #{@home.name} offers:
                 %ul.about-list
                   %li The right to be treated with dignity and respect.
                   %li The right to be informed in writing about services and fees before you enter the nursing home.

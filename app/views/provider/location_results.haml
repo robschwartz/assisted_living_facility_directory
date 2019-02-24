@@ -65,7 +65,10 @@
             %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
             %input.form-control{name: 'email', placeholder: 'Email', required: true}
             %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
-            %input.form-control{name: 'web_referral', type:'hidden', value: "Adult Home Directory"}
+            %input.form-control{name: 'web_referral', type:'hidden', value: "allseniorcarefinder"}
+            %select.form-control{ :name => "home_type" }
+              %option{:value => "assisted_living"}= "Assisted Living Facility"
+              %option{:value => "nursing_home"}= "Nursing Home"   
             -# .form-check
             -#   %label.form-check-label
             -#     Nursing Home
@@ -114,7 +117,7 @@
                 - else
                   .fa.fa-minus-square.red
                 %br
-              .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{home.name}", "data-provNumber"=> "#{home.provider_number}"}
+              .col-md-3.col-xs-6.req-info-btn.btn.btn-default{"type"=> 'button', "data-toggle"=> "modal", "data-target"=> "#req-modal", "data-name"=> "#{home.name}", "data-provNumber"=> "#{home.id}"}
                 Request Info
               %a.col-md-3.col-xs-6.req-info-btn.btn.btn-default{:href => "/adult-home-finder/adult-home/#{home.name}", :title=>"#{home.home_type}"}
                 Home Details

@@ -16,7 +16,10 @@
                 %input.form-control{name: 'location', placeholder: 'City, State or Zip', required: true}
                 %input.form-control{name: 'email', placeholder: 'Email', required: true}
                 %input.form-control{name: 'number', placeholder: 'Phone Number', required: true}
-                %input.form-control{name: 'web_referral', type:'hidden', value: "Adult Home Directory"}
+                %input.form-control{name: 'web_referral', type:'hidden', value: "allseniorcarefinder"}
+                %select.form-control{ :name => "home_type" }
+                  %option{:value => "assisted_living"}= "Assisted Living Facility"
+                  %option{:value => "nursing_home"}= "Nursing Home"   
                 -# .form-check.form-check-inline
                 -#   %label.form-check-label
                 -#     Nursing Home
@@ -55,10 +58,10 @@
         %h2.ser-title Contact us
         %hr.botm-line/
       .col-md-4.col-sm-4
-        %h3 Contact Us
+        %h3
         .space
         %p
-          Want to add or claim a Nursing Home on our list? Have a general question? Please fell free to contact us through the form and someone will reach out to you within 24-48 hours.
+          Want to add or claim a Nursing Home on our list? Have a general question? Please fell free to contact us through the form and someone will reach out to you within 48 hours.
 
       .col-md-8.col-sm-8.marb20
         .contact-info
