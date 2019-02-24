@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /thank-you/
 Noindex: /thank-you/
-Sitemap: http://www.adulthomedirectory.com/sitemap.xml
+Sitemap: http://www.allseniorcarefinder.com/sitemap.xml
